@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:sf="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register</title>
+<link type="text/css" href="/css/Registration.css" rel="stylesheet">
+<script type="text/javascript" src="/script/Registration.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+	<h1>Registration page</h1>
+	<form action="#" th:action="@{/register}"
+		th:object="${registrationForm}" method="post">
+		<hr>
+		<label for="firstName">FirstName:</label><br> <input type="text"
+			id="firstName" th:field="*{firstName}" name="firstName"
+			placeholder="First Name" required>
+		<p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Incorrect
+			FirstName</p>
+		<br> <label for="lastName">LastName:</label><br> <input
+			type="text" id="lastName" th:field="*{lastName}" name="lastName"
+			placeholder="Last Name" required>
+		<p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Incorrect
+			LastName</p>
+		<br> <label for="email">Email:</label><br> <input
+			type="text" id="email" th:field="*{email}" name="email"
+			placeholder="Email" required>
+		<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Incorrect
+			Email</p>
+		<br> <label for="phoneNumber">PhoneNumber:</label><br> <input
+			type="number" id="phoneNumber" th:field="*{phoneNumber}"
+			name="phoneNumber" placeholder="Phone Number" required>
+		<p th:if="${#fields.hasErrors('phoneNumber')}"
+			th:errors="*{phoneNumber}">Incorrect PhoneNumber</p>
+		<br> <label for="dateOfBirth">Date of Birth:</label><br> <input
+			type="date" id="dateOfBirth" th:field="*{dateOfBirth}"
+			name="dateOfBirth" placeholder="Date of Birth" required>
+		<p th:if="${#fields.hasErrors('dateOfBirth')}"
+			th:errors="*{dateOfBirth}">Incorrect Date of Birth</p>
+		<br> <label for="address">Address:</label><br> <input
+			type="text" id="address" th:field="*{address}" name="address"
+			placeholder="Address" required>
+		<p th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Incorrect
+			Address</p>
+		<br> <label for="userName">UserName:</label><br> <input
+			type="text" id="userName" th:field="*{userName}" name="userName"
+			placeholder="User Name" required>
+		<p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">Incorrect
+			UserName</p>
+		<br> <span th:if="${message != null}" class="error">UserName
+			is not unique</span><br> <label for="password">Password:</label><br> <input
+			type="password" id="password" th:field="*{password}" name="password"
+			placeholder="Password" required>
+		<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Incorrect
+			Password</p>
+		<br>
+		<hr>
+		<p>
+			By creating an account you agree to our <a href="#">Terms and
+				Privacy</a>.
+		</p>
+		<br>
+		<div class="row">
+			<input id="register" type="submit" class="registerbtn"
+				value="Register"> <input id="cancel"
+				onClick="cancelRegistration()" type="submit" class="cancelBtn"
+				value="Cancel">
+		</div>
+	</form>
+</body>
+</html>

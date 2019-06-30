@@ -1,0 +1,1 @@
+insert into logindetails(ID, USERNAME, PASSWORD) values ('1' , 'saurabh', 'Saurabh@123'); 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <bean id="loginFormDao" class="com.myapp.login.dao.LoginFormDao"></bean>
+    <bean id="loginFormDaoImpl" class="com.myapp.login.dao.impl.LoginFormDaoImpl"></bean>
+    <bean id="loginService" class="com.myapp.login.service.LoginService">
+    	<property name="loginFormDao"><ref bean="loginFormDaoImpl"/></property>
+    </bean>
+    <bean id="loginController" class="com.myapp.login.controller.LoginController">
+    	<property name="loginService" ref="loginService"></property>
+    </bean>
+</beans>
